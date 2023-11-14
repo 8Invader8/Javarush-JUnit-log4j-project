@@ -1,11 +1,11 @@
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.verify;
 
 class HippodromeTest {
 
@@ -56,9 +56,8 @@ class HippodromeTest {
         hippodrome.move();
 
         for (Horse hors : horses) {
-            Mockito.verify(hors, Mockito.times(1)).move();
+            verify(hors, Mockito.times(1)).move();
         }
-
     }
 
     @Test

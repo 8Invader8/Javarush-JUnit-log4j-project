@@ -8,6 +8,10 @@ import static org.mockito.Mockito.mockStatic;
 
 class HorseTest {
 
+    private final String name = "TestName";
+    private double speed;
+    private double distance;
+
     @Test
     public void constructor_NullNameParam_throwsIllegalArgumentException(){
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> new Horse(null, 1,2));
@@ -26,9 +30,8 @@ class HorseTest {
     @Test
     public void constructor_NegativeSpeedParamPassed_throwsIllegalArgumentException(){
         String expectedMessage = "Speed cannot be negative.";
-        String name = "TestName";
-        double speed = -3;
-        double distance = 2;
+        speed = -3;
+        distance = 2;
 
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> new Horse(name, speed,distance));
         assertEquals(expectedMessage, exception.getMessage());
@@ -37,20 +40,18 @@ class HorseTest {
     @Test
     public void constructor_NegativeDistanceParamPassed_throwsIllegalArgumentException(){
         String expectedMessage = "Distance cannot be negative.";
-        String name = "TestName";
-        double speed = 1;
-        double distance = -2;
+        speed = 1;
+        distance = -2;
 
-        Throwable exception = assertThrows(IllegalArgumentException.class, () -> new Horse(name, speed,distance));
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> new Horse(name, speed, distance));
         assertEquals(expectedMessage, exception.getMessage());
     }
 
     @Test
     void getName_ReturnsCorrectName() {
-        String name = "TestName";
-        double speed = 1;
-        double distance = 2;
-        Horse horse = new Horse(name, speed,distance);
+        speed = 1;
+        distance = 2;
+        Horse horse = new Horse(name, speed, distance);
 
         String actualName = horse.getName();
 
@@ -59,10 +60,9 @@ class HorseTest {
 
     @Test
     void getSpeed_ReturnsCorrectSpeed() {
-        String name = "TestName";
-        double speed = 1;
-        double distance = 2;
-        Horse horse = new Horse(name, speed,distance);
+        speed = 1;
+        distance = 2;
+        Horse horse = new Horse(name, speed, distance);
 
         double actualSpeed = horse.getSpeed();
 
@@ -71,10 +71,9 @@ class HorseTest {
 
     @Test
     void getDistance_ReturnsCorrectDistance() {
-        String name = "TestName";
-        double speed = 1;
-        double distance = 2;
-        Horse horse = new Horse(name, speed,distance);
+        speed = 1;
+        distance = 2;
+        Horse horse = new Horse(name, speed, distance);
 
         double actualDistance = horse.getDistance();
 
@@ -97,9 +96,8 @@ class HorseTest {
     public void move_UsedFormulaIsCorrect(double fakeRandomValue){
         double min = 0.2;
         double max = 0.9;
-        String name = "TestName";
-        double speed = 2.5;
-        double distance = 250;
+        speed = 2.5;
+        distance = 250;
         Horse horse = new Horse(name,speed,distance);
         double expectedDistance = distance + speed * fakeRandomValue;
 
